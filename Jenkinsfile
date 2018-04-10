@@ -11,5 +11,14 @@ pipeline {
         sh 'mvn -v'
       }
     }
-  }
-}
+  
+   stage('Development Tests') {
+         when {
+            beforeAgent true
+            branch 'master'
+         }
+         steps {
+            echo "Run the development tests!"
+         }
+      }
+  }}
